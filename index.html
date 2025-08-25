@@ -193,10 +193,9 @@
   <button id="goodBoyBtn">Surprise me c;</button>
 
   <div id="note">
-    Happyyyy birthdayyyy to my mannn<333 mwahhhmwahhhmwahhhmwahhhmwahhmwahmwahmwahhhmwahmwahmwahmwahmwahhmwahhhmwahhhmwahhhmwahhhmwahmwahhhh oldiee hehe to another 19 years with you and more my kuchikuchikuu &lt;33 thenkyouuu for stayinggg even despite everything maa ill make sure you wont regret :33
+    Happyyyy birthdayyyy to my mannn&lt;333 mwahhhmwahhhmwahhhmwahhhmwahhmwahmwahmwahhhmwahmwahmwahmwahmwahhmwahhhmwahhhmwahhhmwahhhmwahmwahhhh oldiee hehe to another 19 years with you and more my kuchikuchikuu &lt;33 thenkyouuu for stayinggg even despite everything maa ill make sure you wont regret :33
   </div>
 
-  <!-- YouTube API -->
   <div id="ytplayer" style="display:none;"></div>
 
   <script>
@@ -245,4 +244,31 @@
         styleEl.textContent = `@keyframes blowOut { to { transform:translateX(-50%) scale(0); opacity:0; } }`;
         document.head.appendChild(styleEl);
         setTimeout(() => spawnBalloons(15), 1500);
-        setTimeout(() => goodBoyBtn.style.display = "
+        setTimeout(() => goodBoyBtn.style.display = "block", 3000);
+      }
+    });
+
+    goodBoyBtn.addEventListener("click", () => {
+      cakeScene.style.display = "none";
+      note.classList.add("show");
+
+      if (player && player.playVideo) {
+        player.playVideo();
+      }
+    });
+
+    function spawnBalloons(count) {
+      const colors = ["#ff4d6d", "#ff7f7f", "#e75480", "#ff9999", "#cc3366"];
+      for (let i = 0; i < count; i++) {
+        let b = document.createElement("div");
+        b.className = "balloon";
+        b.style.left = Math.random() * 90 + "vw";
+        b.style.background = colors[Math.floor(Math.random() * colors.length)];
+        b.style.animationDuration = (4 + Math.random() * 2) + "s";
+        document.body.appendChild(b);
+        setTimeout(() => b.remove(), 6000);
+      }
+    }
+  </script>
+</body>
+</html>

@@ -107,7 +107,9 @@
     <div class="cake-text">(tap to blow the candles)</div>
   </div>
   <button id="goodBoyBtn">Surprise me c;</button>
-  <div id="note">Happyyyy birthdayyyy to my mannn<333 mwahhhmwahhhmwahhhmwahhhmwahhmwahmwahmwahhhmwahmwahmwahmwahmwahhmwahhhmwahhhmwahhhmwahhhmwahmwahhhh oldiee hehe. to another 19 years with you and more my kuchikuchikuu <33</div>
+  <div id="note">Happyyyy birthdayyyy to my mannn<333 mwahhhmwahhhmwahhhmwahhhmwahhmwahmwahmwahhhmwahmwahmwahmwahmwahhmwahhhmwahhhmwahhhmwahhhmwahmwahhhh oldiee hehe
+  to another 19 years with you and more my kuchikuchikuu <33
+  thenkyouuu for stayinggg even despite everything maa ill make sure you wont regret :33</div>
 
   <!-- YouTube API -->
   <div id="ytplayer" style="display:none;"></div>
@@ -191,8 +193,10 @@
       note.classList.add("show");
       goodBoyBtn.innerText="Surprise me c;";
 
-      // Play song when button is tapped
-      if(player && player.playVideo){ player.playVideo(); }
+      // Ensure song starts immediately when button is tapped
+      if(player && typeof player.playVideo === "function") { 
+        player.playVideo(); 
+      }
 
       // Start cherry blossom shower
       setInterval(()=>spawnPetals(15),400);
